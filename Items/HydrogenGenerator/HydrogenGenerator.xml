@@ -64,8 +64,8 @@
       </StatusEffect>
     </Repairable>
   </Item>
-  <Item name="Hydrogen Tank" identifier="hydrogentank" tags="smallitem,reactorfuel" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" allowdroppingonswap="true">
-    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  <Item name="Hydrogen Tank" identifier="hydrogentank" tags="smallitem,reactorfuel" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_metal_light" allowdroppingonswap="true">
+    <Upgrade gameversion="0.10.0.0" scale="1" />
     <Price baseprice="100">
       <Price storeidentifier="merchantoutpost" minavailable="5" />
       <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="7" />
