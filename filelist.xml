@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentpackage name="BTE-Revengence" modversion="0.1" corepackage="False" gameversion="0.18.15.0" altnames="BTE" >
 	<Item file="%ModDir%/Items/Reactor/btereactor.xml" />
+	<Item file ="%ModDir%/Items/HydrogenGenerator/HydrogenGenerator.xml" />
 	<Other file="%ModDir%/Sounds/Generator/DieselGen.ogg" />
 	<Other file="%ModDir%/Sounds/Generator/DieselGenGone.ogg" />
 	<Other file="%ModDir%/Sounds/Generator/Reactor.ogg" />
