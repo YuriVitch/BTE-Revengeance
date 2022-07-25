@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+ <Item name="Diesel-Electric Generator" identifier="OldSchoolReactor" tags="generator" type="Reactor" linkable="true" category="Machine" scale="0.5">
+ <Sprite texture="dieselGen.png" sourcerect="0,0,760,388" depth="0.8" origin="0.5,0.5" />
+ <BrokenSprite texture="dieselGenBroken.png" sourcerect="0,0,528,288" depth="0.8" maxcondition="0" />
+ <trigger />
+ <Reactor canbeselected="true" firedelay="10" FireTemp="4750" MeltdownDelay="90000" MeltDownTemp="5000" maxpoweroutput="8000" fuelconsumptionrate="0.2" vulnerabletoemp="false" msg="ItemMsgInteractSelect">
+ <GuiFrame relativesize="0.5,0.45" minsize="700,350" maxsize="2688,1166" anchor="Center" relativeoffset="0.1,0" style="ItemUI" />
+      <GraphLine texture="Content/Items/Reactor/graphLine.png">
+        <Sprite name="ReactorGraphLine" texture="Content/Items/Reactor/graphLine.png" sourcerect="0,0,32,32" />
+      </GraphLine>
+      <FissionRateMeter>
+        <Sprite name="FissionRateMeter" texture="Content/Items/Reactor/reactor.png" sourcerect="603,817,441,240" origin="0.5,1" />
+      </FissionRateMeter>
+      <TurbineOutputMeter>
+        <Sprite name="TurbineOutputMeter" texture="Content/Items/Reactor/reactor.png" sourcerect="603,817,441,240" origin="0.5,1" />
+      </TurbineOutputMeter>
+      <MeterPointer>
+        <Sprite name="MeterPointer" texture="Content/UI/UIAtlasDevices.png" sourcerect="938,846,31,167 " origin="0.5,0.9" />
+      </MeterPointer>
+      <SectorSprite>
+        <Sprite name="SectorSprite" texture="Content/UI/UIAtlasDevices.png" sourcerect="769,326,238,455" origin="0.95,0.5" />
+      </SectorSprite>
+      <TempMeterFrame>
+        <Sprite name="TempMeterFrame" texture="Content/UI/UIAtlasDevices.png" sourcerect="92,517,59,265" origin="0,0" size="0.5,1" />
+      </TempMeterFrame>
+      <TempMeterBar>
+        <Sprite name="TempMeterBar" texture="Content/UI/UIAtlasDevices.png" sourcerect="270,414,106,47" origin="0.5,0" />
+      </TempMeterBar>
+      <TempRangeIndicator>
+        <Sprite name="TempRangeIndicator" texture="Content/UI/UIAtlasDevices.png" sourcerect="31,614,52,25" origin="0.5,0.5" size="0.6,0.6" />
+      </TempRangeIndicator>
+      <RequiredSkill identifier="mechanical" level="30" />
+	  <sound file="%ModDir%/Sounds/Generator/DieselGen.ogg" type="OnActive" range="3000" volumeproperty="Temperature" volume="0.02" loop="true" />
+      <StatusEffect type="OnFire" target="this" condition="-8.5" />
+      <StatusEffect type="Always" target="This,Hull" IsOn="false" FissionRate="0.0" setvalue="true" >
+			<Conditional oxygen="lt 200" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This,Hull" FissionRate="0.0" oxygen="-60000" disabledeltatime="true">
+        <sound file="%ModDir%/Sounds/Generator/DieselGenGone.ogg" range="3000" />
+        <Explosion range="250" stun="0.05" force="5" shockwave="false" flames="false" sparks="false" />
+      </StatusEffect>
+    </Reactor>
+	   <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <output name="power_out" displayname="connection.powerout" />
+      <output name="temperature_out" displayname="connection.temperatureout" />
+      <input name="shutdown" displayname="connection.shutdown" />
+    </ConnectionPanel>
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.1" mindeteriorationdelay="120" maxdeteriorationdelay="480" MinDeteriorationCondition="10" fixDurationHighSkill="5" fixDurationLowSkill="20" msg="ItemMsgRepairWrench" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,216" anchor="Center" relativeoffset="0.0,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="30" />
+      <RequiredItem identifier="wrench" type="equipped" />
+      <ParticleEmitter particle="spark" particleamount="10" emitinterval="5" anglemax="360" velocitymin="5.0" velocitymax="250" scalemin="0.5" scalemax="1" mincondition="15" maxcondition="35" />
+      <ParticleEmitter particle="fleshsmoke" particlespersecond="2" scalemin="1" scalemax="3" mincondition="0.0" maxcondition="15" />
+      <ParticleEmitter particle="spark" particleamount="5" emitinterval="5" anglemax="360" velocitymin="5.0" velocitymax="250" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15" />
+    </Repairable>
+    <ItemContainer capacity="4" canbeselected="true" slotsperrow="1" slotspercolumn="4">
+      <Containable items="dieselcan">
+        <StatusEffect type="OnContaining" target="This" AvailableFuel="80" disabledeltatime="true" />
+      </Containable>
+</ItemContainer>
+  </Item>
+    <Item name="Diesel Can" identifier="dieselcan" description="A plastic canister containing diesel, which can be used in Diesel-Electric Generators provided oxygen." Tags="mediumitem,reactorfuel,explosiveitem" health="50" spritecolor="1.0,0.5,0.0,1.0" scale="0.4" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" cargocontaineridentifier="metalcrate" impacttolerance="4" impactsoundtag="impact_metalcan">
+    <Upgrade gameversion="0.9.6.0" scale="0.5" />
+    <Price locationtype="Military" buyprice="50" />
+    <Price locationtype="Research" buyprice="50" />
+    <Price locationtype="City" buyprice="80" />
+    <Price locationtype="Outpost" buyprice="100" />
+    <Deconstruct time="10">
+      <Item identifier="plastic" outcondition="0.75" />
+      <RequiredItem identifier="ethanol" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="plastic" mincondition="0.75" />
+      <RequiredItem identifier="ethanol" />
+    </Fabricate>
+    <Sprite texture="DieselCan.png" depth="0.55" sourcerect="0,0,100,146" origin="0.5,0.5" />
+    <Body width="95" height="140" density="11" friction="0.95" />
+    <Throwable slots="RightHand,LeftHand" holdpos="0,0" handle1="-13,-2" handle2="-13,-2" throwforce="2.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnImpact" target="This">
+        <sound file="%ModDir%/Sounds/Impact/DieselCanHit.ogg" range="750" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This">
+        <RequiredItem identifier="OldSchoolReactor" type="Container" />
+        <Conditional condition="lt 1" />
+        <SpawnItem identifiers="emptycan" spawnposition="This" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="this">
+        <sound file="%ModDir%/Sounds/Explosions/ThermiteExplosion.ogg"/>
+        <Explosion range="250" stun="1" force="15">
+          <Affliction identifier="burn" strength="25" />
+        </Explosion>
+        <Fire size="100" />
+        <SpawnItem identifiers="emptycan" spawnposition="This" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="this" condition="-100">
+        <Fire size="100" />
+      </StatusEffect>
+    </Throwable>
+  </Item>
+    <Item name="Empty Can" identifier="emptycan" Tags="mediumitem" scale="0.4" impacttolerance="4" impactsoundtag="impact_metalcan">
+    <Deconstruct time="10">
+      <Item identifier="plastic" outcondition="0.75" />
+    </Deconstruct>
+    <Sprite texture="DieselCan.png" depth="0.55" sourcerect="0,0,100,147" origin="0.5,0.5" />
+    <Body width="60" height="86" density="10.9" />
+    <Throwable slots="RightHand,LeftHand" holdpos="0,0" handle1="-13,-2" handle2="-13,-2" throwforce="2.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnImpact" target="This">
+        <sound file="%ModDir%/Sounds/Impact/MetalCanHitHard1.ogg" range="750" selectionmode="Random" />
+        <sound file="%ModDir%/Sounds/Impact/MetalCanHitHard2.ogg" range="750" />
+        <sound file="%ModDir%/Sounds/Impact/MetalCanHitHard3.ogg" range="750" />
+      </StatusEffect>
+    </Throwable>
+  </Item>
+</Items>
