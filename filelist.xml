@@ -3,6 +3,7 @@
 	<Item file="%ModDir%/Items/Reactor/btereactor.xml" />
 	<Item file="%ModDir%/Items/HydrogenGenerator/HydrogenGenerator.xml" />
 	<Item file="%ModDir%/Items/Tools/Tools.xml" />
+	<Item file="%ModDir%/Items/Containers/Containers.xml" />
 	<Other file="%ModDir%/Sounds/Generator/DieselGen.ogg" />
 	<Other file="%ModDir%/Sounds/Generator/DieselGenGone.ogg" />
 	<Other file="%ModDir%/Sounds/Generator/Reactor.ogg" />
@@ -18,4 +19,7 @@
 	<Other file="%ModDir%/Sounds/Tools/FryingPan.ogg" />
 	<Other file="%ModDir%/Sounds/Tools/SawLoop.ogg" />
 	<Other file="%ModDir%/Sounds/Impact/Stabbing.ogg" />
+	<Other file="%ModDir%/Sounds/Other/PowerOn.ogg" />
+	<Other file="%ModDir%/Sounds/Containers/FridgeHum.ogg" />
+	<Other file="%ModDir%/Sounds/Containers/Crate.ogg" />
 </contentpackage>

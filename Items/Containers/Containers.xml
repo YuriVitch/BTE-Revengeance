@@ -1,16 +1,262 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
+//Standard Shipping box
 <Item name="Standard Shipping Box" aliases="shippingbox" identifier="standardshippingbox" description="Requires a Utility Knife to be cut open" tags="container,bigitem" linkable="true">
 		<Sprite texture="dynamicContainers.png" sourcerect="0,2,60,60" depth="0.54" origin="0.5,0.5" />
     <Body width="56" height="56" density="15" friction="0.95"/>
-
 <Holdable slots="RightHand+LeftHand" holdpos="0,-70" aimpos="15,-50" handle1="-25,14" handle2="25,14">
-
 		<ItemContainer capacity="20" slotsperrow="10" hideitems="true" msg="ItemMsgInteractSelect">
 			<GuiFrame relativesize="0.3,0.45" anchor="Center" style="ItemUI" />
 			<RequiredItem identifiers="utilityknife" type="Picked" ignoreineditor="true" msg="ItemMsgUnauthorizedAccess" />
 		</ItemContainer>
-
 </Holdable>
+	</Item>
+//Small Steel Cabinet
+<Item name="Small Steel Cabinet" identifier="smallsteelcabinet" tags="locker,container" linkable="true" pickdistance="150" scale="0.5">
+    <Sprite texture="Lockers.png" depth="0.84" sourcerect="0,0,169,259" origin="0.5,0.5" />
+    <ItemContainer capacity="9" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+	  <GuiFrame relativesize="0.25,0.3" anchor="Center" style="ItemUI" />
+	  <RequiredItem items="idcard" type="Picked" ignoreineditor="true" msg="ItemMsgUnauthorizedAccess" />
+      <Containable items="smallitem,mediumitem" />
+    </ItemContainer>
+  </Item>
+//Small Windowed steel cabinet
+  <Item name="Small Windowed Steel Cabinet" identifier="smallwindowedsteelcabinet" tags="locker,container" linkable="true" pickdistance="150" scale="0.5">
+    <Sprite texture="Lockers.png" depth="0.84" sourcerect="173,0,169,259" origin="0.5,0.5" />
+    <ItemContainer capacity="9" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+	  <GuiFrame relativesize="0.18,0.25" anchor="Center" style="ItemUI" />
+	  <RequiredItem items="idcard" type="Picked" ignoreineditor="true" msg="ItemMsgUnauthorizedAccess" />
+      <Containable items="smallitem,mediumitem" />
+    </ItemContainer>
+  </Item>
+ //Item Chute
+  <Item name="Item Chute" identifier="itemchutevertical" description="Allows the sending of items through hulls" resizehorizontal="true" scale="0.5" spritecolor="125, 125, 125" tags="container" category="Misc">
+    <sprite texture="Content/Map/DecorativeVentilation.png" sourcerect="512,512,96,96" depth="0.92" origin="0.5,0.5" />
+<ItemContainer capacity="1" canbeselected="true" hideitems="true" msg="ItemMsgPickUpSelect"/>
+  </Item>
+ <Item name="Item Chute 90 Deg" identifier="itemchutehoriziontal" description="Allows the sending of items through hulls" resizevertical="true" scale="0.5" spritecolor="125,125,125" tags="container" category="Misc">
+    <sprite texture="Content/Map/DecorativeVentilation.png" sourcerect="608,512,96,96" depth="0.92" origin="0.5,0.5" />
+<ItemContainer capacity="1" canbeselected="true" hideitems="true" msg="ItemMsgPickUpSelect"/>
+  </Item>
+//Refridgerator
+	<Item name="Refrigerator" identifier="fridge" tags="container" linkable="true" pickdistance="150" waterproof="true">
+		<Sprite texture="staticContainers.png" depth="0.84" sourcerect="140,186,71,135" />
+		<LightComponent lightcolor="1.0,1.0,1.0,0.4" range="10" isOn="true" powerconsumption="6" castshadows="false" allowingameediting="false">
+			<poweronsound file="%ModDir%/Sounds/Other/PowerOn.ogg" range="1000" loop="false" />
+			<sprite texture="FridgeLights.png" sourcerect="0,0,71,135" alpha="1.0"/>
+			<StatusEffect type="Always" target="This" isactive="true">
+				<Conditional IsOn="true"/>
+			</StatusEffect>
+			<StatusEffect type="Always" target="This" isactive="false">
+				<Conditional IsOn="false"/>
+			</StatusEffect>
+		</LightComponent>
+		<Powered powerconsumption="10" currpowerconsumption="10" minvoltage="0.5" isactive="true">
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="fries,applepie,carrotpie" Condition="0.002"/>
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="crawlerpie,thresherpie" Condition="0.003"/>
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="bakedpotato" Condition="0.004"/>
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="friedmantis" Condition="0.012"/>
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="mantcrawlcocktail1,thresherstew,mantcrawlcocktail2" Condition="0.013"/>
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="glazedthresher,searedsnailfish,searedcrawler,searedmantis" Condition="0.014"/>
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="searedthresher,friedthresher" Condition="0.015"/>
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="crewsteak" Condition="0.016"/>
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="snailfishmeat,crawlermeat1,crawlermeat2,mantismeat,mantiseggs" Condition="0.017"/>
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="threshermeat" Condition="0.018"/>
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="humanmeat" Condition="0.019"/>
+			<sound file="%ModDir%/Sounds/Containers/FridgeHum.ogg" type="OnActive" range="500" loop="true"/>
+		</Powered>
+		<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+			<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+			<StatusEffect type="OnFailure" target="Character">
+				<Explosion range="100" force="3.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false">
+					<Affliction identifier="burn" strength="15" />
+					<Affliction identifier="stun" strength="10" />
+				</Explosion>
+			</StatusEffect>
+			<RequiredItem identifier="screwdriver" type="Equipped" />
+			<input name="power_in" />
+		</ConnectionPanel>
+		<ItemContainer capacity="15" canbeselected="true" hideitems="true" msg="ItemMsgPickUpSelect">
+			<Containable items="smallitem,food,drink" />
+		</ItemContainer>
+	</Item>
+//Incubator
+	<Item name="Incubator" identifier="incubator" tags="incubator" linkable="false" spritecolor="255,255,255,255" pickdistance="150">
+		<Sprite texture="staticContainers.png" depth="0.84" sourcerect="286,186,100,128" origin="0.5,0.5" />
+		<Powered powerconsumption="100" currpowerconsumption="100" minvoltage="0.5" isactive="true">
+			<StatusEffect type="OnActive" target="Contained" targetidentifiers="fetuscrawler" Scale="0.004"/>
+			<sound file="%ModDir%/Sounds/Containers/FridgeHum.ogg" type="OnActive" range="500" loop="true"/>
+		</Powered>
+		<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+			<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+			<StatusEffect type="OnFailure" target="Character">
+				<Explosion range="100" force="3.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false">
+					<Affliction identifier="burn" strength="15" />
+					<Affliction identifier="stun" strength="10" />
+				</Explosion>
+			</StatusEffect>
+			<RequiredItem identifier="screwdriver" type="Equipped" />
+			<input name="power_in" />
+		</ConnectionPanel>
+		<ItemContainer capacity="1" canbeselected="true" hideitems="false" itempos="28,-40" msg="ItemMsgInteractSelect">
+			<GuiFrame relativesize="0.25,0.45" anchor="Center" style="ItemUI" />
+			<RequiredItem items="idcard" type="Picked" ignoreineditor="true" msg="ItemMsgUnauthorizedAccess"/>
+			<Containable items="incubatorgrown" />
+		</ItemContainer>
+	</Item>
+//Cargo Container
+	<Item name="Cargo Container" identifier="cargocontainer" tags="container" linkable="true">
+		<Sprite texture="staticContainers.png" sourcerect="0,0,413,185" depth="0.78" origin="0.5,0.5" />
+		<ItemContainer capacity="80" slotsperrow="10" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+			<GuiFrame relativesize="0.3,0.45" anchor="Center" style="ItemUI" />
+			<RequiredItem identifiers="crowbar" type="Picked" ignoreineditor="true" msg="ItemMsgUnauthorizedAccess" />
+		</ItemContainer>
+	</Item>
+//Workshop Box
+	<Item name="Workshop Shipping Box" aliases="workshopbox" identifier="workshopshippingbox" description="Requires a Utility Knife to be cut open" tags="container,bigitem" linkable="true">
+		<Sprite texture="dynamicContainers.png" sourcerect="122,124,60,60" depth="0.54" origin="0.5,0.5" />
+    <Body width="56" height="56" density="15" friction="0.95"/>
+<Holdable slots="RightHand+LeftHand" holdpos="0,-70" aimpos="15,-50" handle1="-25,14" handle2="25,14">
+		<ItemContainer capacity="20" slotsperrow="10" hideitems="true" msg="ItemMsgInteractSelect">
+			<GuiFrame relativesize="0.3,0.45" anchor="Center" style="ItemUI" />
+			<RequiredItem identifiers="utilityknife" type="Picked" ignoreineditor="true" msg="ItemMsgUnauthorizedAccess" />
+		</ItemContainer>
+</Holdable>
+	</Item>
+//Trash Bin
+		<Item name="Trash Bin" identifier="trashbin" tags="container" linkable="true" pickdistance="150">
+		<Sprite texture="staticContainers.png" sourcerect="104,323,40,47" depth="0.78" origin="0.5,0.5" />
+		<ItemContainer capacity="9" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+			<GuiFrame relativesize="0.15,0.25" anchor="Center" style="ItemUI" />
+			<Containable items="smallitem,mediumitem" />
+		</ItemContainer>
+	</Item>
+//Diving chest
+	<Item name="Diving Chest" identifier="divingchest" tags="container" pickdistance="150" impactsoundtag="impact_metal_heavy">
+		<Price locationtype="Military" buyprice="150"/>
+		<Price locationtype="Research" buyprice="150"/>
+		<Price locationtype="City" buyprice="150"/>
+		<Price locationtype="Outpost" buyprice="150"/>
+		<Price locationtype="Mine" buyprice="150" />
+		<Deconstruct time="20">
+			<Item identifier="steel" />
+			<Item identifier="aluminium" />
+			<Item identifier="plastic" />
+		</Deconstruct>
+		<Sprite texture="dynamicContainers.png" sourcerect="114,185,90,48" depth="0.54" origin="0.5,0.5" />
+		<Body width="85" height="42" density="10.01" />
+		<Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect"/>
+		<ItemContainer capacity="12" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+			<RequiredItem items="idcard" type="Picked" ignoreineditor="true" msg="ItemMsgUnauthorizedAccess"/>
+			<Containable items="smallitem,mediumitem" />
+		</ItemContainer>
+	</Item>
+//Steel table
+	<Item name="Steel Table" identifier="steeltable" tags="cntnr" description="A sturdy steel table with a drawer." impacttolerance="4">
+		<Sprite texture="dynamicContainers.png" sourcerect="183,0,131,85" depth="0.53"/>
+		<Body width="130" height="84" density="18"/>
+		<Deconstruct time="10">
+			<Item identifier="steel"/>
+			<Item identifier="steel"/>
+		</Deconstruct>
+		<ItemContainer capacity="5" canbeselected="false" hideitems="true">
+			<Containable items="smallitem"/>
+		</ItemContainer>
+		<Holdable slots="RightHand+LeftHand" holdpos="0,-80" aimpos="40,-20" handle1="-40,14" handle2="40,14" aimable="false" controlpose="false">
+			<StatusEffect type="OnImpact" target="This">
+				<sound file="%ModDir%/Sounds/Tools/BatHit.ogg"/>
+				<Explosion range="75" structuredamage="0.2" force="12" flash="false" shockwave="false" flames="false" smoke="false" sparks="false" underwaterbubble="false">
+					<Affliction identifier="stun" strength="3.8" />
+					<Affliction identifier="internaldamage" strength="14" />
+				</Explosion>
+			</StatusEffect>
+		</Holdable>
+	</Item>
+//Steel Chair
+	<Item name="Steel Chair" identifier="steelchair1" description="A sturdy but uncomfortable steel chair." impacttolerance="4">
+		<Sprite texture="dynamicContainers.png" sourcerect="237,86,53,98" depth="0.54" canflipx="false"/>
+		<Body width="52" height="97" density="14"/>
+		<Deconstruct time="10">
+			<Item identifier="steel"/>
+		</Deconstruct>
+		<Holdable slots="RightHand+LeftHand"/>
+		<Throwable slots="RightHand+LeftHand" throwforce="3.0">
+			<StatusEffect type="OnImpact" target="This">
+				<sound file="%ModDir%/Sounds/Tools/BatHit.ogg"/>
+				<Explosion range="70" structuredamage="0.1" force="10" flash="false" shockwave="false" flames="false" smoke="false" sparks="false" underwaterbubble="false">
+					<Affliction identifier="stun" strength="2" />
+					<Affliction identifier="internaldamage" strength="7" />
+				</Explosion>
+			</StatusEffect>
+		</Throwable>
+	</Item>
+//Steel chair 2
+	<Item name="Steel Chair" identifier="steelchair2" aliases="Steel Сhair" description="A sturdy but uncomfortable steel chair." impacttolerance="4">
+		<Sprite texture="dynamicContainers.png" sourcerect="183,86,53,98" depth="0.54" canflipx="false"/>
+		<Body width="52" height="97" density="14"/>
+		<Deconstruct time="10">
+			<Item identifier="steel"/>
+		</Deconstruct>
+		<Holdable slots="RightHand+LeftHand"/>
+		<Throwable slots="RightHand+LeftHand" throwforce="3.0">
+			<StatusEffect type="OnImpact" target="This">
+				<sound file="%ModDir%/Sounds/Tools/BatHit.ogg"/>
+				<Explosion range="70" structuredamage="0.1" force="10" flash="false" shockwave="false" flames="false" smoke="false" sparks="false" underwaterbubble="false">
+					<Affliction identifier="stun" strength="2" />
+					<Affliction identifier="internaldamage" strength="7" />
+				</Explosion>
+			</StatusEffect>
+		</Throwable>
+	</Item>
+//Pet crawler cage
+	<Item name="Pet Crawler Cage" identifier="crawlerpetcage" tags="crate" scale="1.0" pickdistance="150" impactsoundtag="impact_metal_heavy"
+		health="250" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true">
+		<Price locationtype="Military" buyprice="250"/>
+		<Price locationtype="Research" buyprice="250"/>
+		<Price locationtype="City" buyprice="250"/>
+		<Price locationtype="Outpost" buyprice="250"/>
+		<Price locationtype="Mine" buyprice="250" />
+		<Deconstruct time="20">
+			<Item identifier="steel" />
+			<Item identifier="steel" />
+			<Item identifier="steel" />
+		</Deconstruct>
+		<Sprite texture="Cages.png" depth="0.54" sourcerect="0,0,147,86" origin="0.5,0.5" />
+		<Body width="140" height="82" density="50" />
+		<Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect">
+			<CustomInterface canbeselected="false" drawhudwhenequipped="true">
+				<GuiFrame relativesize="0.08,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI"/>
+				<Button text="Release">
+					<StatusEffect type="OnUse" target="This">
+						<sound file="%ModDir%/Sounds/Containers/Crate.ogg" range="800"/>
+						<SpawnCharacter speciesname="crawlerpet"/>
+						<SpawnItem identifiers="petcage" spawnposition="This"/>
+						<Remove/>
+					</StatusEffect>
+				</Button>
+			</CustomInterface>
+			<StatusEffect type="OnImpact" target="This" Condition="-5.7"/>
+			<StatusEffect type="OnFire" target="This" Condition="-2.3"/>
+			<StatusEffect type="OnBroken" target="This">
+				<particleemitter particle="brownchunks" particleamount="100" velocitymin="0" velocitymax="800" anglemin="0" anglemax="360" scalemin="0.4" scalemax="0.6"/>
+				<particleemitter particle="whitegoosplash" particleamount="30" velocitymin="0" velocitymax="500" anglemin="0" anglemax="360" scalemin="1" scalemax="1.5" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False"/>
+				<Sound file="Content/Sounds/Damage/Gore7.ogg" range="800"/>
+				<SpawnItem identifiers="petcage" spawnposition="This"/>
+				<Remove/>
+			</StatusEffect>
+		</Holdable>
+	</Item>
+	<Item name="Empty Pet Cage" identifier="petcage" tags="crate" scale="1.0" pickdistance="150" impactsoundtag="impact_metal_heavy">
+		<Deconstruct time="20">
+			<Item identifier="steel" />
+			<Item identifier="steel" />
+			<Item identifier="steel" />
+		</Deconstruct>
+		<Sprite texture="Cages.png" depth="0.54" sourcerect="0,0,147,86" origin="0.5,0.5"/>
+		<Body width="140" height="82" density="50"/>
+		<Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect"/>
+		<ItemContainer capacity="9" canbeselected="false" hideitems="true" keepopenwhenequipped="true">
+			<Containable items="smallitem,mediumitem"/>
+		</ItemContainer>
 	</Item>
 	</Items>
