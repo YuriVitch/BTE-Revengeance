@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+//Frying pan
+    <Item name="Frying Pan" identifier="fryingpan" category="Equipment" Tags="smallitem,tool" cargocontaineridentifier="standardshippingbox" Scale="0.7" description="A steel frying pan used for cooking on a stove." impactsoundtag="impact_metal_light">
+	<Price baseprice="55"><Price locationtype="outpost" multiplier="1" minavailable="10" />
+	<Price locationtype="city" multiplier="0.9" minavailable="15" />
+	<Price locationtype="research" multiplier="1.85" minavailable="10" />
+	<Price locationtype="military" multiplier="1.86" minavailable="10" />
+	<Price locationtype="mine" multiplier="1.32" minavailable="10" />
+	</Price><Deconstruct time="4"><Item identifier="iron" />
+	<Item identifier="plastic" outcondition="0.2" />
+	</Deconstruct>
+	<Fabricate suitablefabricators="fabricator" requiredtime="10">
+	<RequiredItem identifier="iron" />
+	<RequiredItem identifier="plastic" mincondition="0.2" usecondition="true" />
+	</Fabricate>
+	<Sprite texture="ToolsOld.png" sourcerect="113,0,43,26" depth="0.55" origin="0.5,0.5" />
+	<Body width="60" height="15" density="50" />
+	<MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="50,0" handle1="-14,-3" holdangle="60" reload="1.29" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
+	<Attack structuredamage="0.9" itemdamage="2" stun="1.24" targetimpulse="5">
+	<Affliction identifier="blunttrauma" strength="9" />
+	<Sound file="%ModDir%/Sounds/Tools/FryingPan.ogg" range="2500" />
+	</Attack>
+	</MeleeWeapon>
+	<aitarget sightrange="500" soundrange="500" fadeouttime="1" />
+	<Upgrade gameversion="0.10.0.0" scale="0.5" />
+</Item>
+//Cleaver
+      <Item name="Cleaver" aliases="harvestor,harvester" identifier="cleaver" useinhealthinterface="true" category="Equipment" Tags="smallitem,tool,weapon" cargocontaineridentifier="standardshippingbox" Scale="0.25" description="Used to cut up flesh" impactsoundtag="impact_metal_light">
+	  <Price baseprice="55">
+	  <Price locationtype="outpost" multiplier="1" minavailable="10" />
+	  <Price locationtype="city" multiplier="0.9" minavailable="15" />
+	  <Price locationtype="research" multiplier="1.85" minavailable="10" />
+	  <Price locationtype="military" multiplier="1.86" minavailable="10" />
+	  <Price locationtype="mine" multiplier="1.32" minavailable="10" />
+	  </Price>
+	  <Deconstruct time="4">
+	  <Item identifier="iron" />
+	  <Item identifier="plastic" outcondition="0.2" />
+	  </Deconstruct>
+	  <Fabricate suitablefabricators="fabricator" requiredtime="10">
+	  <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="plastic" mincondition="0.2" usecondition="true" />
+	  </Fabricate>
+	  <Sprite texture="tools.png" sourcerect="559,152,152,138" depth="0.55" origin="0.5,0.5" />
+	  <Body width="60" height="15" density="50" />
+	  <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="50,0" handle1="-12,-3" holdangle="60" reload="1.00567" range="79" combatpriority="6" msg="ItemMsgPickUpSelect" severlimbsprobability="1">
+	  <Attack structuredamage="0.8991" itemdamage="2" stun="0.3215" targetimpulse="5"><Affliction identifier="lacerations" strength="4" />
+	  <Affliction identifier="blunttrauma" strength="1" />
+	  <Affliction identifier="bleeding" strength="6" />
+	  <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+	  <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+	  <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+	  <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+	  <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+	  <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+	  </Attack>
+	  </MeleeWeapon>
+	  <aitarget sightrange="500" soundrange="500" fadeouttime="1" />
+	  <Upgrade gameversion="0.10.0.0" scale="0.25" />
+	  </Item>
+//Pliers
+   <Item name="Pliers" identifier="pliers" aliases="pliers,plier" category="Equipment" Tags="smallitem,tool,screwdriver" cargocontaineridentifier="securemetalcrate" Scale="0.5" impactsoundtag="impact_metal_light">
+   <Price baseprice="50">
+   <Price locationtype="outpost" multiplier="1" minavailable="10" />
+   <Price locationtype="city" multiplier="0.9" minavailable="15" />
+   <Price locationtype="research" multiplier="1.25" minavailable="10" />
+   <Price locationtype="military" multiplier="1.25" minavailable="10" />
+   <Price locationtype="mine" multiplier="1" minavailable="10" />
+   </Price><Deconstruct time="10">
+   <Item identifier="iron" />
+   <Item identifier="iron" outcondition="0.1" />
+   </Deconstruct>
+   <Fabricate suitablefabricators="fabricator" requiredtime="10">
+   <RequiredItem identifier="iron" />
+   <RequiredItem identifier="iron" mincondition="0.1" usecondition="true" />
+   </Fabricate>
+   <Sprite texture="tools.png" sourcerect="276,25,80,70" depth="0.55" origin="0.5,0.5" />
+   <Body width="60" height="12" density="50" />
+   <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,-10" holdangle="60" reload="1.0" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
+   <Attack structuredamage="2" itemdamage="2" stun="0.3" targetimpulse="2"><Affliction identifier="lacerations" strength="4" />
+   <Affliction identifier="bleeding" strength="5" />
+   <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+   <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+   <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+   <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+   <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+   <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+   </Attack>
+   </MeleeWeapon>
+   <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+   <Upgrade gameversion="0.10.0.0" scale="0.5" />
+   </Item>
+//Utility Knife
+<Item name="Utility Knife" identifier="utilityknife" aliases="utility knife" category="Equipment" Tags="smallitem,tool" description="Used to cut boxes open" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light">
+<Price baseprice="50">
+<Price locationtype="outpost" multiplier="1" minavailable="10" />
+<Price locationtype="city" multiplier="0.9" minavailable="15" />
+<Price locationtype="research" multiplier="1.25" minavailable="10" />
+<Price locationtype="military" multiplier="1.25" minavailable="10" />
+<Price locationtype="mine" multiplier="1" minavailable="10" />
+</Price><Deconstruct time="10">
+<Item identifier="plastic" />
+<Item identifier="iron" outcondition="0.3" />
+</Deconstruct>
+<Fabricate suitablefabricators="fabricator" requiredtime="10">
+<Item identifier="plastic" />
+<RequiredItem identifier="iron" mincondition="0.3" usecondition="true" />
+</Fabricate>
+<Sprite texture="tools.png" sourcerect="575,35,93,34" depth="0.55" origin="0.5,0.5" />
+<Body width="60" height="12" density="50" />
+<MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="50,0" handle1="-10,0" handle2="-8,1" holdangle="40" reload="1.0" range="50" combatpriority="8" msg="ItemMsgPickUpSelect">
+<ItemComponent><StatusEffect type="OnUse" target="Limb">
+<Affliction identifier="lacerations" strength="6" />
+<Affliction identifier="bleeding" strength="7" />
+<Affliction identifier="stun" strength="0.2" />
+</StatusEffect>
+</ItemComponent>
+<Attack structuredamage="2" itemdamage="2" stun="0.3" targetimpulse="2">
+<Affliction identifier="lacerations" strength="6" />
+<Affliction identifier="bleeding" strength="7" />
+<Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+<Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+<Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+<Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+<Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+<Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+</Attack>
+</MeleeWeapon>
+<aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+<Upgrade gameversion="0.10.0.0" scale="0.5" />
+</Item>
+//Claw Hammer
+  <Item name="Claw Hammer" identifier="clawhammer" aliases="hammer" category="Equipment" Tags="smallitem,tool" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light"
+    description="Now you can be bob the builder and fix a clown via lobotomy.">
+    <PreferredContainer primary="engcab" minamount="1" maxamount="2" spawnprobability="1"/>
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="1" spawnprobability="0.125"/>
+    <PreferredContainer primary="outpostcrewcabinet" minamount="1" maxamount="2" spawnprobability="0.5"/>
+    <Price baseprice="12" >
+      <Price locationtype="outpost" multiplier="1" minavailable="10" />
+      <Price locationtype="city" multiplier="0.9" minavailable="15" />
+      <Price locationtype="research" multiplier="1.25" minavailable="10" />
+      <Price locationtype="military" multiplier="1.25" minavailable="10" />
+      <Price locationtype="mine" multiplier="1" minavailable="10" />
+    </Price>
+    <Deconstruct time="13">
+      <Item identifier="iron" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="iron" />
+    </Fabricate>
+    <Sprite texture="tools.png" sourcerect="28,102,100,60" depth="0.55" origin="0.5,0.5" />
+    <Body width="60" height="15" density="50" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-12,-5" holdangle="60" reload="1.0" range="50" combatpriority="10" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="4" itemdamage="2" stun="0.8" targetimpulse="5">
+        <Affliction identifier="blunttrauma" strength="14" />
+        <Affliction identifier="lacerations" strength="0.3" />
+        <Sound file="%ModDir%/Sounds/Tools/Hammer.ogg" range="800" />
+      </Attack>
+    </MeleeWeapon>
+    <aitarget sightrange="500" soundrange="500" fadeouttime="1" />
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+//Fire Axe
+    <Item name="Fire Axe" identifier="fireaxe" category="Equipment" Tags="largeitem,bigitem,tool,weapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light"
+    description="Here's Johnny">
+    <Price baseprice="150" >
+      <Price locationtype="outpost" multiplier="1" minavailable="1" />
+      <Price locationtype="city" multiplier="0.9" minavailable="9" />
+      <Price locationtype="research" multiplier="1.25" minavailable="2" />
+      <Price locationtype="military" multiplier="1.25" minavailable="3" />
+      <Price locationtype="mine" multiplier="1" minavailable="1" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="iron" />
+	  <Item identifier="iron" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="35">
+	      <RequiredSkill identifier="mechanical" level="15" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" />
+    </Fabricate>
+    <Sprite texture="tools.png" sourcerect="15,16,246,58" depth="0.55" origin="0.5,0.5" />
+    <Body width="60" height="15" density="50" />
+    <MeleeWeapon slots="RightHand+LeftHand" aimpos="40,5" handle1="-12,-5" handle2="-12,-5" holdangle="60" reload="1.6" range="150" combatpriority="32" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="8" itemdamage="2" stun="0.8" targetimpulse="5">
+        <Affliction identifier="blunttrauma" strength="12" />
+        <Affliction identifier="lacerations" strength="12" />
+		<Affliction identifier="bleeding" strength="4" />
+		<Sound file="%ModDir%/Sounds/Impact/Stabbing.ogg" range="800" />
+      </Attack>
+    </MeleeWeapon>
+    <aitarget sightrange="500" soundrange="500" fadeouttime="1" />
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+  //Steel Bat
+      <Item name="Steel Bat" aliases="Baseball Bat" identifier="steelbat" category="Equipment" Tags="largeitem,tool,weapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light"
+    description="Say Goodbye to your kneecaps chuckle head">
+    <Price baseprice="50" >
+      <Price locationtype="outpost" multiplier="1" minavailable="1" />
+      <Price locationtype="city" multiplier="0.9" minavailable="13" />
+      <Price locationtype="research" multiplier="1.25" minavailable="5" />
+      <Price locationtype="military" multiplier="1.25" minavailable="3" />
+      <Price locationtype="mine" multiplier="1" minavailable="1" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="iron" />
+	  <Item identifier="iron" outcondition="0.4" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="35">
+	      <RequiredSkill identifier="mechanical" level="15" />
+      <RequiredItem identifier="iron" />
+	  <RequiredItem identifier="iron" mincondition="0.4" usecondition="true"/>
+    </Fabricate>
+    <Sprite texture="tools.png" sourcerect="8,74,236,32" depth="0.55" origin="0.5,0.5" />
+    <Body width="60" height="15" density="50" />
+    <MeleeWeapon slots="Any,RightHand+LeftHand" aimpos="40,5" handle1="-25,-5" handle2="-12,-5" holdangle="60" reload="1.4" range="150" combatpriority="31" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="8" itemdamage="2" stun="0.8" targetimpulse="5">
+        <Affliction identifier="blunttrauma" strength="14" />
+		        <Affliction identifier="bleeding" strength="0.1" />		
+        <Sound file="%ModDir%/Sounds/Tools/BatHit.ogg" range="800" />
+      </Attack>
+    </MeleeWeapon>
+    <aitarget sightrange="500" soundrange="500" fadeouttime="1" />
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+  //Hacksaw
+    <Item name="Hacksaw" identifier="hacksaw" category="Equipment" Tags="smallitem,tool" cargocontaineridentifier="metalcrate" Scale="0.4" impactsoundtag="impact_metal_light"
+    description="Standard issue tool for construction workers.">
+    <PreferredContainer primary="engcab" minamount="1" maxamount="2" spawnprobability="0.9"/>
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="1" spawnprobability="0.125"/>
+    <PreferredContainer primary="outpostcrewcabinet" minamount="1" maxamount="2" spawnprobability="0.5"/>
+    <Price baseprice="11" >
+      <Price locationtype="outpost" multiplier="1" minavailable="10" />
+      <Price locationtype="city" multiplier="0.9" minavailable="15" />
+      <Price locationtype="research" multiplier="1.25" minavailable="10" />
+      <Price locationtype="military" multiplier="1.25" minavailable="10" />
+      <Price locationtype="mine" multiplier="1" minavailable="10" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="iron" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="iron" />
+    </Fabricate>
+    <Sprite texture="tools.png" sourcerect="15,162,130,60" depth="0.55" origin="0.5,0.5" />
+    <Body width="60" height="15" density="50" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-12,-5" holdangle="60" reload="1.0" range="50" combatpriority="9" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="4" itemdamage="2" stun="0.8" targetimpulse="5">
+        <Affliction identifier="blunttrauma" strength="6" />
+        <Affliction identifier="lacerations" strength="3" />
+        <Affliction identifier="bleeding" strength="7" />
+        <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+        <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+        <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+      </Attack>
+    </MeleeWeapon>
+    <aitarget sightrange="500" soundrange="500" fadeouttime="1" />
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+  //Construction Kit
+   <Item name="Construction Kit" identifier="constructionkit" aliases="tool kit" tags="machine" pickdistance="150" scale="0.5" Description="Drop to use">
+  <Price baseprice="50" >
+      <Price locationtype="outpost" multiplier="1" minavailable="1" />
+      <Price locationtype="city" multiplier="0.9" minavailable="2" />
+      <Price locationtype="research" multiplier="1.25" minavailable="1" />
+      <Price locationtype="military" multiplier="1.25" minavailable="1" />
+      <Price locationtype="mine" multiplier="1" minavailable="1" />
+    </Price>
+    <Sprite texture="tools.png" depth="0.55" sourcerect="3,326,256,126" origin="0.5,0.5" />
+	<Body width="145" height="85" density="50" />
+    <Deconstruct time="50">
+      <Item identifier="steel" />
+	  <Item identifier="plastic" />
+    </Deconstruct>
+ <Holdable selectkey="Select" pickkey="Use" holdpos="0,-80" handle1="-40,30" handle2="40,30" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="0.001"/>
+    <Fabricator canbeselected="true" powerconsumption="0" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.4,0.45" style="ItemUI" anchor="Center" />
+      <sound file="Content/Items/Fabricators/Fabricator.ogg" type="OnActive" range="1000.0" loop="true"/>
+      <poweronsound file="Content/Items/PowerOnLight1.ogg" range="600" loop="false" />
+    </Fabricator>
+ <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="Input" allowuioverlap="true"/>
+ <ItemContainer capacity="1" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="Output" allowuioverlap="true"/>
+</Item>
+//Saw cutter
+</Items>

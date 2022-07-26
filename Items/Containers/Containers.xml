@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+<Item name="Standard Shipping Box" aliases="shippingbox" identifier="standardshippingbox" description="Requires a Utility Knife to be cut open" tags="container,bigitem" linkable="true">
+		<Sprite texture="dynamicContainers.png" sourcerect="0,2,60,60" depth="0.54" origin="0.5,0.5" />
+    <Body width="56" height="56" density="15" friction="0.95"/>
+
+<Holdable slots="RightHand+LeftHand" holdpos="0,-70" aimpos="15,-50" handle1="-25,14" handle2="25,14">
+
+		<ItemContainer capacity="20" slotsperrow="10" hideitems="true" msg="ItemMsgInteractSelect">
+			<GuiFrame relativesize="0.3,0.45" anchor="Center" style="ItemUI" />
+			<RequiredItem identifiers="utilityknife" type="Picked" ignoreineditor="true" msg="ItemMsgUnauthorizedAccess" />
+		</ItemContainer>
+
+</Holdable>
+	</Item>
+	</Items>

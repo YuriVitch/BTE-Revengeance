@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentpackage name="BTE-Revengence" modversion="0.1" corepackage="False" gameversion="0.18.15.0" altnames="BTE" >
 	<Item file="%ModDir%/Items/Reactor/btereactor.xml" />
-	<Item file ="%ModDir%/Items/HydrogenGenerator/HydrogenGenerator.xml" />
+	<Item file="%ModDir%/Items/HydrogenGenerator/HydrogenGenerator.xml" />
+	<Item file="%ModDir%/Items/Tools/Tools.xml" />
 	<Other file="%ModDir%/Sounds/Generator/DieselGen.ogg" />
 	<Other file="%ModDir%/Sounds/Generator/DieselGenGone.ogg" />
 	<Other file="%ModDir%/Sounds/Generator/Reactor.ogg" />
@@ -11,4 +12,10 @@
 	<Other file="%ModDir%/Sounds/Impact/MetalCanHitHard1.ogg" />
 	<Other file="%ModDir%/Sounds/Impact/MetalCanHitHard2.ogg" />
 	<Other file="%ModDir%/Sounds/Impact/MetalCanHitHard3.ogg" />
+	<Other file="%ModDir%/Sounds/Tools/Hammer.ogg" />
+	<Other file="%ModDir%/Sounds/Tools/BatHit.ogg" />
+	<Other file="%ModDir%/Sounds/Tools/airgun_1.ogg" />
+	<Other file="%ModDir%/Sounds/Tools/FryingPan.ogg" />
+	<Other file="%ModDir%/Sounds/Tools/SawLoop.ogg" />
+	<Other file="%ModDir%/Sounds/Impact/Stabbing.ogg" />
 </contentpackage>
